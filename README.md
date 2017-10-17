@@ -1,5 +1,12 @@
 # Deduper
 
+## Part 1
+
+### Duplicates, UMIs, and soft-clipping
+
+PCR duplicates surface when a transcript becomes amplified during PCR in a weighted manner, not in line with the transcripts actual expression level. If PCR duplicates are not culled the counts of transcripts for which there are PCR duplicates will be falsely represented. If the duplicates are highly "expressed" enough, the differntial expression analysis will be in vain. 
+
+
 Search for UMIs
     allow some mismatch
     allow for soft mapping?
