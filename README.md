@@ -4,7 +4,7 @@
 
 ### Duplicates, UMIs, and soft-clipping
 
-PCR duplicates surface when a transcript becomes amplified during PCR in a weighted manner, not in line with the transcripts actual expression level. If PCR duplicates are not culled the counts of transcripts for which there are PCR duplicates will be falsely represented. If the duplicates are highly "expressed" enough, the differential expression analysis will be in vain. 
+PCR duplicates surface when a transcript becomes amplified during PCR in a weighted manner, not in line with the transcripts actual expression level. If PCR duplicates are not culled the counts of transcripts for which there are PCR duplicates will be falsely represented. If the duplicates are highly "expressed" enough, the differential expression analysis will be in vain as we will be comparing artificially expressed transcripts. 
 
 
 ### Quasicode
@@ -14,7 +14,9 @@ PCR duplicates surface when a transcript becomes amplified during PCR in a weigh
 ```
 parse_concise_idiosyncratic_gapped_alignment_report(align_pos, cigar_string):
 	if (soft clipping present == TRUE)
-		shift align_pos
+		final_align_pos = shift align_pos
+	else
+	    break
 	return final_align_pos
 	
 #ensure actual UMI against list of knowns rather than seq error
@@ -40,7 +42,10 @@ umi_dict = UMIs and tuple(strand flag, align_pos)
 umis = 96 actual UMIs
 
 for line in file:
-	parse_concise_idiosyncratic_gapped_alignment_report(align_pos, cigar_string)
+	final_align_pos = parse_concise_idiosyncratic_gapped_alignment_report(align_pos, cigar_string)
+	if(final_align_pos != align_pos):
+	    align_pos = final_align_pos
+	
 	if(confirm_umi(umi, umi_dict) == TRUE):
 	    check_pair(umi, final_align_pos)
 ```
