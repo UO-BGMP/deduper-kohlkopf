@@ -1,0 +1,11 @@
+@SQ	SN:14	LN:50								
+QNAME	FLAG	RNNAME	POS	MAPQ	CIGAR	RXT	PXT	TLN	SEQ	QUAL
+										
+read1:UMI1	16	groupXIV	1	255	12M	*	0	10	GTACAGTCTCAT	high_score
+read2:UMI1	16	groupXIV	1	255	12M	*	0	10	GTACAGTCTCAT	low_score
+										
+read3:UMI2	16	groupXIV	23	255	12M	*	0	10	GTACAGTCTCAT	high_score
+read4:UMI3	16	groupXIV	23	255	12M	*	0	10	GTACAGTCTCAT	high_score
+										
+read3:UMI4	16	groupXIV	25	255	2S10M	*	0	10	CAACAGTCTCAT	high_score
+read4:UMI4	16	groupXIV	23	255	12M	*	0	10	GTACAGTCTCAT	low_score
