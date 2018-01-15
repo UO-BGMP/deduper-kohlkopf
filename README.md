@@ -50,3 +50,20 @@ for line in file:
 	    check_pair(umi, final_align_pos)
 ```
 
+## Part 3
+
+First sort the file with samtools.
+
+```
+$ samtools view -bS Dataset1.sam | samtools sort -O SAM - -o Dataset1_sorted.sam
+
+$ samtools view -bS Dataset2.sam | samtools sort -O SAM - -o Dataset2_sorted.sam
+
+$ samtools view -bS Dataset3.sam | samtools sort -O SAM - -o Dataset3_sorted.sam
+```
+
+Once the file is sorted and in SAM format, usage is as follows.
+
+```
+$ ./kinning_deduper.py -f <FILEPATH> -umi <PATH-TO-UMI-LIST>
+```
